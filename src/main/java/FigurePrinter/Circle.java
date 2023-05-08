@@ -1,13 +1,24 @@
 package FigurePrinter;
 
+import jakarta.persistence.*;
+
 import java.util.Objects;
 
-public class Circle extends GeometricFigure {
+
+@Entity
+public class Circle extends GeometricFigure{
+    @Id
+    @GeneratedValue
+    private Long id;
     private double radius;
+    private String color;
 
     public Circle(String color, Double radius) {
         super(color);
         this.radius = radius;
+    }
+    public Circle(){
+
     }
 
     public double getRadio() {
@@ -18,12 +29,11 @@ public class Circle extends GeometricFigure {
         this.radius = radius;
     }
 
-    @Override
+
     public double area() {
         return Math.PI * Math.pow(radius, 2);
     }
 
-    @Override
     public double perimeter() {
         return 2 * Math.PI * radius;
     }

@@ -1,8 +1,18 @@
 package FigurePrinter;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+
 import java.util.Objects;
 
+
+@Entity
 public class Triangle extends GeometricFigure {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
     private double side1;
     private double side2;
     private double side3;
@@ -24,6 +34,10 @@ public class Triangle extends GeometricFigure {
         this.side1 = side1;
         this.side2 = side2;
         this.side3 = side3;
+    }
+
+    public Triangle(){
+
     }
 
     @Override

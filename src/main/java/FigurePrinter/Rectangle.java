@@ -1,14 +1,29 @@
 package FigurePrinter;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+
+
+@Entity
 public class Rectangle extends GeometricFigure {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
     private double height;
     private double weight;
 
-    protected Rectangle(String color, double height ,double weight) {
+    public Rectangle(String color, double height ,double weight) {
         super(color);
         this.height = height;
         this.weight = weight;
     }
+
+    public Rectangle() {
+
+    }
+
 
     public void printer(){
         System.out.println("Imprimiendo figura... por favor espere");

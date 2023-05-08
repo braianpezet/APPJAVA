@@ -1,14 +1,28 @@
 package FigurePrinter;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+
 import java.util.Objects;
 
+
+@Entity
 public class Square extends GeometricFigure {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
     private double side;
     public Square(String color, Double side) {
         super(color);
         this.side = side;
 
     }
+
+    public Square() {
+    }
+
     public double getSide() {
         return side;
     }
